@@ -48,12 +48,21 @@ app.get('/', function(req,res){
     ig.user_media_recent('1694451619',{count: 35}, hdl);
 });
 
+var allMedia = [];
 
+var hd2 = function(err, medias, pagination, remaining, limit) {
+    allMedia = allMedia.concat(medias);
+    if(pagination.next){
+        pagination.next(hd2);
+    }else {
+        console.log(allMedia);
+    }
+};
 
-//ig.user_followers('1034466',{count: 100}, function(err, users, pagination, remaining, limit) {
-//    console.log(users);
-//    console.log(remaining);
-//});
+ig.user_followers('1034466',{count: 100}, function(err, users, pagination, remaining, limit) {
+    console.log(users);
+    console.log(remaining);
+});
 
 
 
