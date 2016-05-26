@@ -1,6 +1,8 @@
 /**
- * Created by Christianson on 29/01/2016.
+ * Created by Christianson on 2016-02-01.
  */
+//ig.use({ access_token: '2542065651.1677ed0.6843677527ad4330a9e8ef2a247a3e2c' });
+
 var ig = require('instagram-node').instagram();
 var async = require('async');
 var express = require('express');
@@ -14,7 +16,7 @@ function DataPoint(){
 ig.use({ client_id: '654ff94de9ee44cead7e4de4891d5d18',
     client_secret: 'e96b9424eee14238a947738fc4e6a753' });
 
-app.get('/', function(req,res){
+//app.get('/', function(req,res){
 
     var allMedia = [];
     var timeData = [];
@@ -40,29 +42,21 @@ app.get('/', function(req,res){
 
             }, function (err) {
                 console.timeEnd('getData');
-                res.setHeader('Content-Type', 'application/json');
-                res.jsonp(timeData);
+                console.log(timeData);
+                //res.setHeader('Content-Type', 'application/json');
+                //res.jsonp(timeData);
             });
         }
     };
     ig.user_media_recent('1694451619',{count: 35}, hdl);
-});
+//});
 
-var allMedia = [];
 
-var hd2 = function(err, medias, pagination, remaining, limit) {
-    allMedia = allMedia.concat(medias);
-    if(pagination.next){
-        pagination.next(hd2);
-    }else {
-        console.log(allMedia);
-    }
-};
 
-ig.user_followers('1034466',{count: 100}, function(err, users, pagination, remaining, limit) {
-    console.log(users);
-    console.log(remaining);
-});
+//ig.user_followers('1034466',{count: 100}, function(err, users, pagination, remaining, limit) {
+//    console.log(users);
+//    console.log(remaining);
+//});
 
 
 
@@ -76,8 +70,8 @@ ig.user_followers('1034466',{count: 100}, function(err, users, pagination, remai
 //    console.log(result.length);
 //});
 
-app.listen(80, function(){
-   console.log('listening on port 80');
-});
+//app.listen(80, function(){
+//    console.log('listening on port 80');
+//});
 
 
