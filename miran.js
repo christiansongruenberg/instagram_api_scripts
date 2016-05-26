@@ -15,9 +15,6 @@ var allMedia = [];
 
 var hd2 = function(err, medias, pagination, remaining, limit) {
 
-    medias.forEach(function(media){
-
-    });
 
     allMedia = allMedia.concat(medias);
     if(pagination.next){
@@ -38,7 +35,7 @@ var test = function(err, medias, pagination, remaining, limit) {
     console.log()
 };
 
-ig.user_followers('220110329',{count: 100}, hd2);
+ig.user_followers('1523697664',{count: 100}, hd2);
 
 
 

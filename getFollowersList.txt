@@ -1,0 +1,5 @@
+change user id in miran.js
+
+it will output to users.json file
+
+this tool worked well to convert the json to csv http://www.convertcsv.com/json-to-csv.htm
